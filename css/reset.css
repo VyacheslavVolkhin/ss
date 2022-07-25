@@ -167,6 +167,7 @@ button,
     transition: all ease 0.3s;
     text-decoration: none;
 }
+
 select,
 input[type="text"],
 input[type="password"],
@@ -234,8 +235,8 @@ a {
   transition-property: all;
   -webkit-transition-timing-function: ease;
   transition-timing-function: ease;
-  -webkit-transition-duration: 0.1s;
-  transition-duration: 0.1s;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 ul,
 ol {

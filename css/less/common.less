@@ -9,10 +9,9 @@
     from {opacity: 0;transform: translate(0, -50px);}
     to {opacity: 1;transform: translate(0, 0px);}
 }
-.i {
-	display: inline-block;
-	vertical-align: middle;
-	transition: none;
+.i, [class*="icon-"] {
+    display: block;
+    transition: none;
 }
 .img-bg-cover,
 .img-bg-contain {
@@ -59,6 +58,18 @@
     display: flex;
     flex-wrap: wrap;
     position: relative;
+    &.show-all {
+        .item-wrap.wrap-hidden {
+            display: block;
+        }
+        .wrap-more {
+            a {
+                &:after {
+                    content: attr(data-hide);
+                }
+            }
+        }
+    }
 }
 .item-wrap {
     width: 100%;
@@ -67,6 +78,7 @@
     display: block;
     animation: fadein ease 0.2s;
     &.wrap-more {
+        width: 100% !important;
         &~.item-wrap {
             display: none;
         }
@@ -76,6 +88,15 @@
                 display: block;
             }
         }
+        a {
+            &:after {
+                content: attr(data-show);
+            }
+        }
+    }
+    &.wrap-hidden {
+        display: none;
+        animation: fadein ease 0.2s;
     }
 }
 .slider-wrap,
@@ -96,6 +117,53 @@
 }
 .elm-hidden {
     display: none !important;
+}
+.b-top {
+    border-top: 1px solid var(--clr-border);
+    position: relative;
+    &:before, &:after {
+    	content: "";
+    	display: block;
+    	width: 9999px;
+        height: 1px;
+    	position: absolute;
+    	top: -1px;left: 100%;
+    	background: var(--clr-border);
+    }
+    &:before {
+    	left: auto;right: 100%;
+    }
+}
+.b-bottom {
+    border-bottom: 1px solid var(--clr-border);
+    position: relative;
+    &:before, &:after {
+    	content: "";
+    	display: block;
+    	width: 9999px;
+        height: 1px;
+    	position: absolute;
+    	bottom: -1px;left: 100%;
+    	background: var(--clr-border);
+    }
+    &:before {
+    	left: auto;right: 100%;
+    }
+}
+.cnt-bg {
+    background: fade(#EBEDF1, 50);
+    position: relative;
+    &:before, &:after {
+        content: "";
+        display: block;
+        width: 9999px;
+        position: absolute;
+        top: 0;bottom: 0;left: 100%;
+        background: fade(#EBEDF1, 50);
+    }
+    &:before {
+        left: auto;right: 100%;
+    }
 }
 @media (max-width: 1023px) {
     .elm-hidden-mobile {
